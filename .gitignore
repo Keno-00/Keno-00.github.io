@@ -1,0 +1,30 @@
+# Backups
+*.bak
+*.backup
+
+# OS files
+.DS_Store
+Thumbs.db
+.directory
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.editorconfig
+
+# Build/temp
+node_modules/
+dist/
+build/
+*.tmp
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local

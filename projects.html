@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Keno Jose's projects - quantum image processing, Android development, and XR platforms.">
+  <meta name="author" content="Keno Jose">
+  <title>kenojose.site :: projects</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* PROJECT GALLERY */
+    .projects-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .project-card {
+      border: 2px solid #7a96c2;
+      border-top: 1px solid #dfdedb;
+      border-left: 1px solid #dfdedb;
+      border-right: 1px solid #808080;
+      border-bottom: 1px solid #808080;
+      padding: 16px;
+      background: #eef2fa;
+      font-family: 'Tahoma', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card:hover {
+      border-top: 1px solid #808080;
+      border-left: 1px solid #808080;
+      border-right: 1px solid #dfdedb;
+      border-bottom: 1px solid #dfdedb;
+    }
+
+    .project-card h3 {
+      font-size: 16px;
+      font-weight: bold;
+      color: #364a8a;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .project-card .tagline {
+      font-size: 11px;
+      color: #888;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    .project-card p {
+      font-size: 12px;
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .project-card .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .tech-tag {
+      display: inline-block;
+      background: #eef2fa;
+      border: 1px solid #999;
+      border-right: 1px solid #fff;
+      border-bottom: 1px solid #fff;
+      color: #364a8a;
+      font-size: 9px;
+      padding: 2px 5px;
+      font-family: 'Tahoma', sans-serif;
+      font-weight: normal;
+    }
+
+    .project-card a {
+      display: inline-block;
+      background: linear-gradient(180deg, #f0ece0 0%, #d8d0b8 100%);
+      color: #000;
+      text-decoration: none;
+      padding: 3px 12px;
+      font-size: 11px;
+      font-weight: normal;
+      font-family: 'Tahoma', sans-serif;
+      border: 1px solid #888;
+      border-top: 1px solid #dfdedb;
+      border-left: 1px solid #dfdedb;
+      border-right: 1px solid #808080;
+      border-bottom: 1px solid #808080;
+      cursor: pointer;
+    }
+
+    .project-card a:hover {
+      background: linear-gradient(180deg, #dce8fc, #b0c8f0);
+      border-top: 1px solid #808080;
+      border-left: 1px solid #808080;
+      border-right: 1px solid #dfdedb;
+      border-bottom: 1px solid #dfdedb;
+    }
+  </style>
+</head>
+<body>
+
+<div id="window">
+
+  <!-- TITLE BAR -->
+  <div id="titlebar">
+    <div id="titlebar-left">
+      <div id="titlebar-text">kenojose.site</div>
+    </div>
+    <div id="titlebar-buttons">
+      <div class="xp-btn min">_</div>
+      <div class="xp-btn max">□</div>
+      <div class="xp-btn close">✕</div>
+    </div>
+  </div>
+
+  <!-- MENU BAR -->
+  <div id="menubar">
+    <a href="#">File</a>
+    <a href="#">Edit</a>
+    <a href="#">View</a>
+    <a href="#">Favorites</a>
+    <a href="#">Tools</a>
+    <a href="#">Help</a>
+  </div>
+
+  <!-- ADDRESS BAR -->
+  <div id="addressbar">
+    <span>Address</span>
+    <input type="text" value="http://kenojose.site/projects" readonly />
+    <span style="color:#316ac5; cursor:pointer;">Go</span>
+  </div>
+
+  <!-- CONTENT -->
+  <div id="content-area">
+
+    <!-- SIDEBAR -->
+    <div id="sidebar">
+
+      <img id="frog-avatar" src="assets/avatar.png" alt="keno's pfp" />
+
+      <div class="sidebar-section">
+        <h3>keno jose</h3>
+        <p>
+          <span class="online-dot"></span>online<br><br>
+          ECE · PUP Manila<br>
+          4th year<br><br>
+          im from Rizal PH.
+        </p>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>navigation</h3>
+        <ul>
+          <li><a href="index.html">← home</a></li>
+          <li><a href="index.html#about">about me</a></li>
+          <li><a href="blog.html">blog</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>links</h3>
+        <ul>
+          <li><a href="https://github.com/Keno-00" target="_blank">github</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- MAIN -->
+    <div id="main">
+
+      <div class="sec-head">projects</div>
+      
+      <p style="font-size:11px; color:#888; margin-bottom:16px;">featured projects</p>
+
+      <div class="projects-gallery">
+
+        <!-- MHRQI -->
+        <div class="project-card">
+          <div>
+            <h3>MHRQI</h3>
+            <p class="tagline">multiscale hierarchical representation of quantum images</p>
+            <p>a quantum image representation using recursive subdivision for multiscale and hierarchical operations on images.</p>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Qiskit</span>
+              <span class="tech-tag">Quantum</span>
+            </div>
+          </div>
+          <a href="https://github.com/Keno-00/MHRQI" target="_blank">visit → </a>
+        </div>
+
+        <!-- QARQI -->
+        <div class="project-card">
+          <div>
+            <h3>QARQI</h3>
+            <p class="tagline">quadrant amplitude representation of quantum images</p>
+            <p>a quantum image representation using assumed infinite levels of qudit states to make the register count constant.</p>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Qiskit</span>
+              <span class="tech-tag">Quantum</span>
+            </div>
+          </div>
+          <a href="https://github.com/Keno-00/QARQI" target="_blank">visit → </a>
+        </div>
+
+        <!-- PAILON XR -->
+        <div class="project-card">
+          <div>
+            <h3>Pailon XR</h3>
+            <p class="tagline">fullstack VR classroom LMS platform</p>
+            <p>an integrated VR learning management system with studio for lesson creation, host server for local LAN delivery, and VR/MR client for immersive classroom experiences with AI NPCs, interactive 3D objects, and assessments.</p>
+            <div class="tech-stack">
+              <span class="tech-tag">VR/XR</span>
+              <span class="tech-tag">Full-stack</span>
+              <span class="tech-tag">LMS</span>
+              <span class="tech-tag">AI</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <details style="margin-bottom:20px; margin-top:20px;">
+        <summary style="cursor:pointer;">
+          <div class="sec-head" style="display:inline;">more projects</div>
+        </summary>
+        <div class="projects-gallery" style="margin-top:16px;">
+
+          <!-- MICROBITE -->
+          <div class="project-card">
+            <div>
+              <h3>MicroBite</h3>
+              <p class="tagline">meal tracking application for android</p>
+              <p>android application for managing small, frequent meals and food logging.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">Kotlin</span>
+                <span class="tech-tag">Jetpack Compose</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">AI/ML</span>
+              </div>
+            </div>
+            <a href="https://github.com/Keno-00/MicroBite" target="_blank">visit → </a>
+          </div>
+
+          <!-- OPENQCV -->
+          <div class="project-card">
+            <div>
+              <h3>openqcv</h3>
+              <p class="tagline">quantum image processing library</p>
+              <p>an opencv inspired quantum image processing library with quantum image representations and quantum image processing operations.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Qiskit</span>
+                <span class="tech-tag">Quantum</span>
+                <span class="tech-tag">Image Processing</span>
+              </div>
+            </div>
+            <a href="https://github.com/Keno-00/open-quantum-computer-vision" target="_blank">visit → </a>
+          </div>
+
+          <!-- TUTOKBOT -->
+          <div class="project-card">
+            <div>
+              <h3>tutokbot</h3>
+              <p class="tagline">real-time object detection and automation system</p>
+              <p>real-time humanoid detection using YOLOv8 computer vision with Arduino-based mouse control for precision targeting and automation tasks.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">YOLOv8</span>
+                <span class="tech-tag">Arduino</span>
+                <span class="tech-tag">Computer Vision</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </details>
+
+    </div>
+  </div>
+
+  <!-- STATUS BAR -->
+  <div id="statusbar">
+    <span>✔ Done</span>
+    <span>Internet</span>
+  </div>
+
+</div>
+
+</body>
+</html>
