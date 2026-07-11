@@ -1,0 +1,30 @@
+[
+  {
+    "title": "I never realized how stupid I would get.",
+    "date": "2026-07-12",
+    "private": false,
+    "display_date": "july 2026",
+    "filename": "i-never-realized-how-stupid-id-get.md"
+  },
+  {
+    "title": "working with ai",
+    "date": "2026-03-01",
+    "private": false,
+    "display_date": "march 2026",
+    "filename": "working-with-ai.md"
+  },
+  {
+    "title": "birthday",
+    "date": "2026-02-28",
+    "private": true,
+    "display_date": "february 2026",
+    "filename": "birthday.md"
+  },
+  {
+    "title": "rants and dilemmas with AI",
+    "date": "2026-01-15",
+    "private": true,
+    "display_date": "january 2026",
+    "filename": "rants-and-dilemmas-with-ai.md"
+  }
+]

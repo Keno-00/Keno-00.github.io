@@ -115,11 +115,37 @@
 </head>
 <body>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const sidebar = document.getElementById('sidebar');
+    
+    hamburgerBtn.addEventListener('click', function() {
+      hamburgerBtn.classList.toggle('active');
+      sidebar.classList.toggle('active');
+    });
+
+    // Close sidebar when clicking on a link
+    const sidebarLinks = sidebar.querySelectorAll('a');
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        hamburgerBtn.classList.remove('active');
+        sidebar.classList.remove('active');
+      });
+    });
+  });
+</script>
+
 <div id="window">
 
   <!-- TITLE BAR -->
   <div id="titlebar">
     <div id="titlebar-left">
+      <button id="hamburger-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <div id="titlebar-text">kenojose.site</div>
     </div>
     <div id="titlebar-buttons">

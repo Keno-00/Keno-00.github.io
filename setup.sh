@@ -32,6 +32,29 @@ else
     echo -e "${GREEN}✓ Avatar found${NC}"
 fi
 
+# Check/download marked.min.js
+if [ ! -f "js/marked.min.js" ]; then
+    echo -e "${BLUE}Downloading marked.min.js for offline markdown rendering...${NC}"
+    mkdir -p js
+    if curl -sL "https://cdn.jsdelivr.net/npm/marked/marked.min.js" -o "js/marked.min.js"; then
+        echo -e "${GREEN}✓ Downloaded marked.min.js${NC}"
+    else
+        echo "✗ Failed to download marked.min.js. Please download manually or ensure internet connection."
+    fi
+else
+    echo -e "${GREEN}✓ Local copy of marked.min.js found${NC}"
+fi
+
+# Generate blog index
+echo "Generating blog index..."
+if command -v python3 &>/dev/null; then
+    python3 generate_blog_index.py
+elif command -v python &>/dev/null; then
+    python generate_blog_index.py
+else
+    echo "✗ Python not found to generate blog index."
+fi
+
 # Offer to start server
 echo ""
 echo "Ready to test locally?"
