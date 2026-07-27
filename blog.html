@@ -170,11 +170,40 @@
         const loadContent = async () => {
           if (contentLoaded) return;
           try {
-            const contentResponse = await fetch(`assets/posts/${post.filename}`);
-            if (!contentResponse.ok) {
-              throw new Error('Failed to fetch post content');
+            contentDiv.innerHTML = '<p style="color:#888; font-style:italic;">Loading content...</p>';
+            
+            const filename = post.filename;
+            const fetchPaths = [
+              `assets/posts/${filename}`,
+              `./assets/posts/${filename}`,
+              `assets/posts/${encodeURIComponent(filename)}`
+            ];
+
+            let contentResponse = null;
+            let lastError = null;
+
+            for (const path of fetchPaths) {
+              try {
+                const res = await fetch(path);
+                if (res.ok) {
+                  contentResponse = res;
+                  break;
+                } else {
+                  lastError = `${res.status} ${res.statusText}`;
+                }
+              } catch (err) {
+                lastError = err.message;
+              }
             }
+
+            if (!contentResponse) {
+              throw new Error(`Failed to fetch post content (${lastError || 'Network error'})`);
+            }
+
             let rawContent = await contentResponse.text();
+            
+            // Clean BOM and leading whitespace
+            rawContent = rawContent.replace(/^\ufeff/, '').trimStart();
             
             // Strip frontmatter if present
             if (rawContent.startsWith('---')) {
@@ -186,10 +215,12 @@
             
             // Render markdown or HTML
             if (post.filename.endsWith('.md')) {
-              if (typeof marked !== 'undefined') {
+              if (typeof marked !== 'undefined' && typeof marked.parse === 'function') {
                 contentDiv.innerHTML = marked.parse(rawContent);
+              } else if (typeof marked === 'function') {
+                contentDiv.innerHTML = marked(rawContent);
               } else {
-                contentDiv.innerHTML = rawContent.split('\n\n').map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
+                contentDiv.innerHTML = rawContent.split(/\n\n+/).map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
               }
             } else {
               contentDiv.innerHTML = rawContent;
